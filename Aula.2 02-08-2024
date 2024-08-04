@@ -1,0 +1,46 @@
+/****************************************************************************************
+ * Objetivo: Manipular entrada e saida de dados pelo usuário no Terminal 
+ * Data: 02/08/2024
+ * Autor: Richard
+ * Versão: 1.0 
+*****************************************************************************************/
+// Import da biblioteca readline, que é responsável por manipular entrada de dados 
+    // via terminal
+var readline = require('readline')
+
+
+// Cria um objeto para realizar a entrada de dados pelo teclado no terminal
+var  entradaDeDados = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+//Criamos uma função de CallBack para receber o valor dígitado do nome pelo 
+    // usuário no terminal 
+entradaDeDados.question('Digite seu nome:', function(nome){
+
+
+    var nomeUsuário = nome 
+
+    //console.log('O nome de usuário é ' + nomeUsuário)
+
+
+    entradaDeDados.question('Digite seu email:', function(email){
+
+        var emailUsuário = email
+        //console.log('O email do usuário ' + nomeUsuário + ' é ' + emailUsuário)
+    
+
+        entradaDeDados.question('Digite seu curso:', function(curso){
+
+            var cursoUsuário = curso
+        
+            // concatenação reduzida 
+            console.log(`O email do usuário  ${nomeUsuário}  é  ${emailUsuário}  do curso  ${cursoUsuário} `)
+
+            entradaDeDados.close() //Finalizar a interface de digitação do usuário
+
+
+        })
+    })
+})
