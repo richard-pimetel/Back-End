@@ -1,0 +1,52 @@
+/*****************************************************************************************
+ * Objetivo: conhecer os primeiros comandos de JS no node.JS
+ * Data: 02/08/2024
+ * Autor: Richard
+ * Versão: 1.0
+ * ***************************************************************************************/
+
+//Permite escreer uma messagem no trminal 
+console.log('Exercicio 01 de Node.JS')
+
+ /**
+ * Formas de criar variáveis em JS 
+ * 
+ * 
+ *      var -> permite criar m espaço em memoria, podendo ser alterado no decorrer 
+ *          do projeto, essa variável deve ser criada mo escopo Global do código,
+ *          ou seja, ela existe em todos os blocos de programação.
+ * 
+ * 
+ *      let -> permite criar um espaço em memoria, podendo ser alterado no decorrer 
+ *          do projeto, essa variável deve ser criada apenas no escopo local do código 
+ *          ou seja, ela nasce dentro daquele blocode programação.
+ * 
+ * 
+ *      const -> permite criar um espaço de memoria, QUE NÃO PODE SER ALTERADO no decorrer
+ *          do projeto, ela poe ser criada no escopo Global, o local.
+ */
+
+
+// var = variável
+var nome = 'José'
+var valor1 ='10'
+var valor2 = '20.5'
+var resultado 
+
+
+// Concatenar -> significa juntar conteúdos 
+console.log('O nome do usuário é: ' + nome)
+
+// Permite identificar o tipo de dados de uma variável
+console.log(typeof(nome))
+/**
+ *    Conversão de dados    
+ *       parseInt() -> converte uma variável String em número Inteiro
+ *       parseFloay() -> converte uma variável String em número real
+ *       Number()  -> converte uma variável String em número Inteiro ou real conforme
+ *                      a necessidade.
+ */
+
+resultado = Number(valor1) + Number(valor2)
+
+console.log(resultado)
