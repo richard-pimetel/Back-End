@@ -1,0 +1,54 @@
+/*****************************************************************************************
+ * Objetivo: Completar a missão 1 
+ * Data: 09/08/2024
+ * Autor: Richard
+ * Versão: 1.0
+ * ***************************************************************************************/
+
+var readline = require('readline')
+
+var entradaDeDados = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+
+})
+// Função para calcular o montante final usando juros compostos
+function calcularMontante(principal, taxaJuros, numComposicoes, tempoAnos) {
+    return principal * Math.pow((1 + taxaJuros / numComposicoes), numComposicoes * tempoAnos);
+}
+
+
+entradaDeDados.question('Digite o capital inicial (P): ', function(principal){
+
+    entradaDeDados.question('Digite a taxa de juros anual (r) em percentual: ', function(taxa){
+
+        //convertendo a taxa de juros de percentual para decimal 
+
+        var taxaJuros = parseFloat(taxa) / 100;
+
+        entradaDeDados.question('Digite o número de vezes que os juros são compostos por ano (n): ', function(numComposicoes){
+            entradaDeDados.question('Digite o tempo em anos (t): ', function(tempoAnos) {
+
+                // convertendo os valores de entrada para números 
+
+                principal = parseFloat(principal);
+                numComposicoes = parseInt(numComposicoes);
+                tempoAnos = parseInt(tempoAnos);
+
+                //calculando o montante final 
+                var montanteFinal = calcularMontante(principal, taxaJuros, numComposicoes, tempoAnos);
+
+                //Exibindo o resultado 
+                console.log(`O montante final após ${tempoAnos} anos será R$ ${montanteFinal.toFixed(2)} `);
+
+                entradaDeDados.close(); // finalizar a interface de digitção do usuário 
+
+
+            }) 
+
+
+        })
+
+
+    })
+})
