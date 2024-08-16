@@ -1,0 +1,97 @@
+/*****************************************************************************************
+ * Objetivo: Realizar o tratramento de entrada de dados, mainipulação de estruturas condicionais
+ * Data: 09/08/2024
+ * Autor: Richard
+ * Versão: 1.0
+ * ***************************************************************************************/
+
+// Import da biblioteca para entrada de dados
+var readline = require('readline')
+
+// cria um projeto para realizar as entradas de dados 
+var entradaDeDados = readline.createInterface({
+
+    input: process.stdin,
+    output: process.stdout
+
+})
+
+entradaDeDados.question('Digite o nome do aluno: ', function(nome){
+    // cria ma variável local dentro da função
+    let nomeAluno = nome 
+
+    entradaDeDados.question('Digite o nome do curo: ', function(curso){
+        // cria ma variável local dentro da função
+        let cursoAluno = curso 
+        
+        entradaDeDados.question('Digite a nota 1: ', function(valor1){
+            // cria ma variável local dentro da função
+            let nota1 = valor1
+
+            entradaDeDados.question('Digite a nota 2: ', function(valor2){
+                // cria ma variável local dentro da função
+                let nota2 = valor2
+
+                entradaDeDados.question('Digite a nota 3: ', function(valor3){
+                    // cria ma variável local dentro da função
+                    let nota3 = valor3
+
+                    entradaDeDados.question('Digite a nota 4: ', function(valor4){
+                        // cria ma variável local dentro da função
+                        let nota4 = valor4
+
+                        /*
+                        *       Operação de comparação 
+                        * == vericar a igualdade entre dois conteúdos 
+                        * != verificar a diferença entre dois valor
+                        * < verificar o menor valor
+                        * > verificar o maior valor
+                        * <= verificar o menor valor ou se os valores são iguais 
+                        * >= verificar o maior valor ou se os valores são iguais
+                        * === verificar a igualdade entre dois conteúdos e a igualdade entre tipos de dados
+                        * ==! verificar a igualdade entre dois conteúdos e a diferença entre tipos de dados
+                        * !== verificar a diferença  entre dois conteúdos e a igualdade entre tipos de dados
+                        * !=! verificar a diferença  entre dois conteúdos e a diferença entre tipos de dados
+                        * 
+                        */ 
+
+                        // Validação para verificar a entrada vazio
+                        if(nomeAluno == '' || cursoAluno == '' || nota1 == '' || nota2 == '' || nota3 == '' || nota4 == ''){
+                            console.log('ERRO: é o obrigratório preencher todos os dados')
+  
+                         }else{
+                            
+                            //Validação para permitir somente a entrega de valores númericos
+                            if (isNaN(nota1) == true|| isNaN(nota2) == true|| isNaN(nota3) == true || isNaN(nota4) == true){
+                                console.log('ERRO: É obrigatório a entrada de dados numéricos nas notas.')
+
+                            }else{
+                                // Validação para permitir somente numeros de 0 até 10
+                                if(nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota3 < 0 || nota3 > 10 ||nota4 < 0 || nota4 >10){
+                                    console.log('ERRO: Somente é permitido a entrada de valore entre 0 e 10 nas notas. ')
+                                }else{
+                                    //Processamento parea calcular a média final do aluno 
+                                    resultado = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4))/4
+                                    
+
+                                    }if(resultado >= 7 ){
+                                        console.log(`\n---Boletim do Aluno--- \n nome do aluo: ${nomeAluno} \n Curso: ${cursoAluno} \n Notas: ${nota1}, ${nota2}, ${nota3}, ${nota4} \nMédia: ${resultado.toFixed(1)} \nsituação: Aprovado`)
+                                    }else{
+
+                                        }if(resultado >= 5 && resultado <=6.9 ){
+                                        console.log(`\n---Boletim do Aluno--- \n nome do aluo: ${nomeAluno} \n Curso: ${cursoAluno} \n Notas: ${nota1}, ${nota2}, ${nota3}, ${nota4} \nMédia: ${resultado.toFixed(1)} \nsituação: Recuperação`)
+                                        
+                                        }}if(resultado  < 5  ){
+                                            console.log(`\n---Boletim do Aluno--- \n nome do aluo: ${nomeAluno} \n Curso: ${cursoAluno} \n Notas: ${nota1}, ${nota2}, ${nota3}, ${nota4} \nMédia: ${resultado.toFixed(1)} \nsituação: Reprovado`)        
+                                    
+                                    
+                            }
+                       }    
+                        
+                    })
+                })
+            })
+        })
+
+    })
+})
